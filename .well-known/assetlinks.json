@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rashinova.jhoothludo",
+      "sha256_cert_fingerprints": [
+        "EC:A2:16:13:0F:46:E2:6C:E0:C1:BD:AF:20:3E:60:0F:02:23:59:84:CE:0E:40:5B:D4:34:66:C2:45:89:7E:76",
+        "16:CA:D1:D9:3C:39:6D:10:87:67:FE:0D:B5:C9:9F:7D:1A:7B:36:EE:83:EA:39:A3:3B:1D:96:C1:D7:EC:38:A8"
+      ]
+    }
+  }
+]
