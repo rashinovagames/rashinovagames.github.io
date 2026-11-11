@@ -22,19 +22,25 @@
   <p>Your friend is waiting in room</p>
   <div class="code" id="code">----</div>
   <a class="btn" id="open" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Open in Ludo Yatra</a>
-  <p>No game yet? <a style="color:#ffc93c" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Get Ludo Yatra on Google Play</a>, then tap the link again.</p>
+  <p>No game yet? <a style="color:#ffc93c" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Get Ludo Yatra on Google Play</a>. When you open it, it joins this room by itself.</p>
   <p class="small">Or open the game, tap Play Online &gt; Play with Friends and type the code.</p>
 </main>
 <script>
   var m = /[?&]c=([A-Za-z0-9]{4})/.exec(location.search);
+  var store = "https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo";
   if (m) {
     var c = m[1].toUpperCase();
     document.getElementById("code").textContent = c;
-    // Android: open the game at this room; without the game, Chrome goes to the Play Store
+    // the Play Store hands "room=CODE" to the game after installing, so the first open joins this room
+    store += "&referrer=" + encodeURIComponent("room=" + c);
+    var links = document.querySelectorAll("a[href^='https://play.google.com']");
+    for (var i = 0; i < links.length; i++) links[i].href = store;
     if (/Android/i.test(navigator.userAgent)) {
-      document.getElementById("open").href = "intent://rashinovagames.github.io/join/?c=" + c +
-        "#Intent;scheme=https;package=com.rashinova.jhoothludo;S.browser_fallback_url=" +
-        encodeURIComponent("https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo") + ";end";
+      // the game if it is installed, otherwise straight to the Play Store
+      var open = "intent://rashinovagames.github.io/join/?c=" + c +
+        "#Intent;scheme=https;package=com.rashinova.jhoothludo;S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
+      document.getElementById("open").href = open;
+      location.replace(open);
     }
   }
 </script>
