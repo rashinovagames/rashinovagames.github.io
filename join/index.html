@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a Ludo Yatra room</title>
+<meta name="robots" content="noindex">
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #3a0c2c; color: #fff4dc; text-align: center; }
+  main { max-width: 420px; margin: 0 auto; padding: 48px 20px; }
+  h1 { color: #ffc93c; font-size: 30px; margin: 0 0 8px; }
+  .code { font-size: 56px; font-weight: 800; letter-spacing: 8px; color: #ffc93c; margin: 18px 0; }
+  a.btn { display: inline-block; background: #2bb24c; color: #fff; text-decoration: none; font-weight: 700;
+          padding: 16px 28px; border-radius: 14px; font-size: 20px; margin-top: 12px; }
+  p { line-height: 1.5; }
+  .small { font-size: 14px; opacity: .8; margin-top: 28px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Ludo Yatra</h1>
+  <p>Your friend is waiting in room</p>
+  <div class="code" id="code">----</div>
+  <p>Open the game, tap <b>Play Online &gt; Play with Friends</b> and enter this code.</p>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Get Ludo Yatra on Google Play</a>
+  <p class="small">With the latest Ludo Yatra installed, this link opens the game and joins the room by itself.</p>
+</main>
+<script>
+  var m = /[?&]c=([A-Za-z0-9]{4})/.exec(location.search);
+  if (m) document.getElementById("code").textContent = m[1].toUpperCase();
+</script>
+</body>
+</html>
