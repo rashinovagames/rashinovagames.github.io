@@ -23,6 +23,7 @@
   <div class="code" id="code">----</div>
   <a class="btn" id="open" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Open in Ludo Yatra</a>
   <p>No game yet? <a style="color:#ffc93c" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Get Ludo Yatra on Google Play</a>. When you open it, it joins this room by itself.</p>
+  <p class="small" id="inapp" style="display:none;color:#ffc93c">Opened inside another app? Tap the ⋮ menu and choose "Open in browser" (or Chrome), then tap the button again.</p>
   <p class="small">Or open the game, tap Play Online &gt; Play with Friends and type the code.</p>
 </main>
 <script>
@@ -35,6 +36,8 @@
     store += "&referrer=" + encodeURIComponent("room=" + c);
     var links = document.querySelectorAll("a[href^='https://play.google.com']");
     for (var i = 0; i < links.length; i++) links[i].href = store;
+    // in-app browsers (Instagram, Facebook, ...) often block opening other apps: say what to do
+    if (/FBAN|FBAV|Instagram|Line\/|wv\)/i.test(navigator.userAgent)) document.getElementById("inapp").style.display = "block";
     if (/Android/i.test(navigator.userAgent)) {
       // the game if it is installed, otherwise straight to the Play Store
       var open = "intent://rashinovagames.github.io/join/?c=" + c +

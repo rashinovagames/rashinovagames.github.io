@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ludo Yatra</title>
+<meta name="description" content="Ludo with snakes and ladders. Play offline or online with friends.">
+<!-- the preview card WhatsApp, Facebook and others show for the shared link -->
+<meta property="og:title" content="Ludo Yatra">
+<meta property="og:description" content="Ludo with snakes and ladders. Play offline or online with friends.">
+<meta property="og:image" content="https://rashinovagames.github.io/ludoyatra/icon.png">
+<meta property="og:url" content="https://rashinovagames.github.io/ludoyatra/">
+<meta property="og:type" content="website">
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #3a0c2c; color: #fff4dc; text-align: center; }
+  main { max-width: 420px; margin: 0 auto; padding: 48px 20px; }
+  img { width: 160px; height: 160px; border-radius: 34px; }
+  h1 { color: #ffc93c; font-size: 32px; margin: 16px 0 8px; }
+  a.btn { display: inline-block; background: #2bb24c; color: #fff; text-decoration: none; font-weight: 700;
+          padding: 16px 28px; border-radius: 14px; font-size: 20px; margin-top: 16px; }
+  p { line-height: 1.5; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon.png" alt="">
+  <h1>Ludo Yatra</h1>
+  <p>Ludo with snakes and ladders. Play offline or online with friends.</p>
+  <a class="btn" id="get" href="https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo">Get it on Google Play</a>
+</main>
+<script>
+  // no tracking: this page only sends the phone on to the game's Play Store page
+  var store = "https://play.google.com/store/apps/details?id=com.rashinova.jhoothludo";
+  if (/Android/i.test(navigator.userAgent)) {
+    // the Play Store app itself (no web address shown), or the web page if the Play Store app is missing
+    var app = "intent://details?id=com.rashinova.jhoothludo#Intent;scheme=market;package=com.android.vending;" +
+      "S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
+    document.getElementById("get").href = app;
+    location.replace(app);
+  }
+</script>
+</body>
+</html>
